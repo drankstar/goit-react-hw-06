@@ -3,6 +3,8 @@ import { nanoid } from "nanoid"
 import * as Yup from "yup"
 import styles from "./ContactForm.module.css"
 import clsx from "clsx"
+import { useDispatch } from "react-redux"
+import { addContact } from "../../redux/contactsSlice"
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -19,7 +21,8 @@ const validationSchema = Yup.object().shape({
     .required("Required"),
 })
 
-const ContactForm = ({ addContacts }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch()
   return (
     <Formik
       initialValues={{
@@ -34,7 +37,7 @@ const ContactForm = ({ addContacts }) => {
           number: values.number,
           id: id,
         }
-        addContacts(newContact)
+        dispatch(addContact(newContact))
         resetForm()
       }}
     >
