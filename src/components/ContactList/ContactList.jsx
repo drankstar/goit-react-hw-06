@@ -2,8 +2,8 @@ import { useSelector } from "react-redux"
 import Contact from "../Contact/Contact"
 import { selectContacts } from "../../redux/contactsSlice"
 import { selectNameFilter } from "../../redux/filtersSlice"
-import { toStandartRegister } from "../../utils/toStandartRegister "
 import { useMemo } from "react"
+import { toStandartRegister } from "../../utils/a"
 
 const ContactList = () => {
   const name = useSelector(selectNameFilter)
