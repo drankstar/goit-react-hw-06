@@ -10,7 +10,7 @@ const Contact = ({ contact }) => {
     dispatch(deleteContact(contact.id))
   }
   return (
-    <li className={styles.contact}>
+    <li className={styles.listItem}>
       <div className={styles.info}>
         <div className={styles.row}>
           <IoMdPerson />
@@ -21,7 +21,9 @@ const Contact = ({ contact }) => {
           {contact.number}
         </div>
       </div>
-      <button onClick={onDelete}>Delet</button>
+      <button className={styles.deletBtn} onClick={onDelete}>
+        Delet
+      </button>
     </li>
   )
 }

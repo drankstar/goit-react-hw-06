@@ -76,7 +76,11 @@ const ContactForm = () => {
               <div className={styles.errorText}>{errors.number}</div>
             )}
           </div>
-          <button type='submit' disabled={!values.name || !values.number}>
+          <button
+            className={styles.submitBtn}
+            type='submit'
+            disabled={!values.name || !values.number}
+          >
             Submit
           </button>
         </Form>
